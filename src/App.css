@@ -1,0 +1,259 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.exam-calendar-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #7f8c8d;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 30px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.calendar-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-day.empty {
+  background-color: transparent;
+  cursor: default;
+}
+
+.calendar-day.has-exam {
+  background-color: #e8f4fc;
+  border: 2px solid #3498db;
+}
+
+.calendar-day.has-exam:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.calendar-day.today {
+  border: 2px solid #e74c3c;
+  background-color: #fdedec;
+}
+
+.calendar-day.past {
+  opacity: 0.7;
+}
+
+.day-number {
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.exam-indicator {
+  width: 100%;
+  padding: 3px;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.exam-time {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 2px;
+}
+
+.exam-details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  max-width: 400px;
+  width: 90%;
+  border-top: 10px solid;
+  animation: popIn 0.3s ease;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.detail-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.detail-text {
+  font-size: 1em;
+}
+
+.venue-row {
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.exam-details p, .exam-details div {
+  margin: 8px 0;
+  color: #333; 
+  opacity: 1 !important; 
+  display: block !important; 
+}
+
+@keyframes popIn {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #7f8c8d;
+}
+
+.exam-details h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.exam-details p {
+  margin: 30px 0;
+  font-size: 20px;
+}
+
+.motivation {
+  font-style: italic;
+  color: #e74c3c;
+  font-weight: bold;
+  margin-top: 20px !important;
+}
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  animation: confettiFall 5s linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.celebration-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: #e74c3c;
+  text-align: center;
+  text-shadow: 0 0 10px white;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@media (max-width: 600px) {
+  .calendar-day {
+    font-size: 12px;
+  }
+  
+  .exam-time {
+    font-size: 10px;
+  }
+}
