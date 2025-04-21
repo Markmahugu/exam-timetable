@@ -63,6 +63,12 @@ const ExamCalendar = () => {
         }}
       >
         <div className="day-number">{day}</div>
+        {isPast && (
+          <div className="x-overlay">
+            <div className="x-line x-line-1"></div>
+            <div className="x-line x-line-2"></div>
+          </div>
+        )}
         {dayExams.length > 0 && (
           <div className="exam-indicator" style={{ backgroundColor: dayExams[0].color }}>
             <div className="exam-time">{dayExams[0].time}</div>
@@ -94,30 +100,30 @@ const ExamCalendar = () => {
       </div>
       
       {selectedExam && (
-  <div className="exam-details" style={{ borderColor: selectedExam.color }}>
-    <button className="close-btn" onClick={() => setSelectedExam(null)}>×</button>
-    <h2>{selectedExam.subject}</h2>
-    <div className="detail-row">
-      <span className="detail-icon">📅</span>
-      <span className="detail-text">{selectedExam.date}th {selectedExam.day}, April 2025</span>
-    </div>
-    <div className="detail-row">
-      <span className="detail-icon">⏰</span>
-      <span className="detail-text">{selectedExam.time}</span>
-    </div>
-    <div className="detail-row venue-row">
-      <span className="detail-icon">🏛️</span>
-      <span className="detail-text">{selectedExam.venue}</span>
-    </div>
-    <p className="motivation">
-      {selectedExam.date === 25 ? 
-        "Last exam! Almost there! 🎉" : 
-        selectedExam.date === 11 ? 
-        "First exam! You'll do great! 💪" : 
-        "Keep going! You're making progress! ✨"}
-    </p>
-  </div>
-)}
+        <div className="exam-details" style={{ borderColor: selectedExam.color }}>
+          <button className="close-btn" onClick={() => setSelectedExam(null)}>×</button>
+          <h2>{selectedExam.subject}</h2>
+          <div className="detail-row">
+            <span className="detail-icon">📅</span>
+            <span className="detail-text">{selectedExam.date}th {selectedExam.day}, April 2025</span>
+          </div>
+          <div className="detail-row">
+            <span className="detail-icon">⏰</span>
+            <span className="detail-text">{selectedExam.time}</span>
+          </div>
+          <div className="detail-row venue-row">
+            <span className="detail-icon">🏛️</span>
+            <span className="detail-text">{selectedExam.venue}</span>
+          </div>
+          <p className="motivation">
+            {selectedExam.date === 25 ? 
+              "Last exam! Almost there! 🎉" : 
+              selectedExam.date === 11 ? 
+              "First exam! You'll do great! 💪" : 
+              "Keep going! You're making progress! ✨"}
+          </p>
+        </div>
+      )}
 
       {celebrate && (
         <div className="confetti-container">

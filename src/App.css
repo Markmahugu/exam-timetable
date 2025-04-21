@@ -257,3 +257,34 @@ h1 {
     font-size: 10px;
   }
 }
+
+.x-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.x-line {
+  position: absolute;
+  width: 80%;
+  height: 4px;
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.x-line-1 {
+  transform: rotate(45deg);
+}
+
+.x-line-2 {
+  transform: rotate(-45deg);
+}
+
+.calendar-day {
+  position: relative;
+}
